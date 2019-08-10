@@ -28,6 +28,7 @@ SRC_FILES := $(wildcard *.cc)
 OBJ_FILES := $(SRC_FILES:%.cc=${DST_DIR}/%.o)
 BIN_FILES_LIST := generator
 BIN_FILES_LIST += async_count
+BIN_FILES_LIST += async_neko
 BIN_FILES := $(BIN_FILES_LIST:%=${DST_DIR}/%)
 
 build: ${BIN_FILES}

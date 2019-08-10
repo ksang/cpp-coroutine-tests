@@ -4,7 +4,7 @@ DEBUG ?= 0
 CLANG := clang++
 
 LDFLAGS     :=
-CXXFLAGS	:= --std=c++17 -fcoroutines-ts -stdlib=libc++
+CXXFLAGS	:= --std=c++2a -fcoroutines-ts -stdlib=libc++
 CXXFLAGS	+= -I../include
 
 ifeq ($(DEBUG), 0)
@@ -29,6 +29,8 @@ OBJ_FILES := $(SRC_FILES:%.cc=${DST_DIR}/%.o)
 BIN_FILES_LIST := generator
 BIN_FILES_LIST += async_count
 BIN_FILES_LIST += async_neko
+BIN_FILES_LIST += future_neko
+BIN_FILES_LIST += async_dispatch
 BIN_FILES := $(BIN_FILES_LIST:%=${DST_DIR}/%)
 
 build: ${BIN_FILES}

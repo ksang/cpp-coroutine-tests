@@ -1,11 +1,14 @@
 VERBOSE ?= 0
 DEBUG ?= 0
+BOOST_ROOT ?= /usr/local/Cellar/boost/1.70.0/
+
 
 CLANG := g++
 
 LDFLAGS     := -lfolly -lglog
 CXXFLAGS	:= --std=c++14
 CXXFLAGS	+= -I../include
+CXXFLAGS    += -I$(BOOST_ROOT)/include
 
 ifeq ($(DEBUG), 0)
 CXXFLAGS  += -O3 -g

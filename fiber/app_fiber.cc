@@ -1,5 +1,7 @@
 #include <iostream>
 #include <queue>
+#include <chrono>
+#include <thread>
 
 #include <folly/Memory.h>
 
@@ -34,6 +36,7 @@ struct Application {
         std::cout << "Executing fiber with id = " << id << std::endl;
 
         auto result1 = await([this](Promise<int> fiber) {
+          std::this_thread::sleep_for(std::chrono::seconds(3));
           pendingRequests.push(std::move(fiber));
         });
 
